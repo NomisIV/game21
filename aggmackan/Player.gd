@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 
 var speed = 250
+var has_egg : bool = false
+
+var score = 0
 var vel : Vector2 = Vector2()
 
 
@@ -24,3 +27,13 @@ func _physics_process(delta):
 		vel.x = speed
 
 	move_and_slide(vel, Vector2.UP)
+
+		
+func pick_up_egg():
+	has_egg = true
+	speed = 100
+	
+func drop_of_egg():
+	has_egg = false
+	score += 1
+	speed = 250
