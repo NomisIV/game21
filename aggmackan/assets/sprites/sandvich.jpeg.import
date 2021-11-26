@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sandvich.jpeg-196efed3fec475edf5bef47afb85af41.stex"
+path="res://.import/sandvich.jpeg-88d342825eb71d220d9757cef2b721bd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assests/sprites/sandvich.jpeg"
-dest_files=[ "res://.import/sandvich.jpeg-196efed3fec475edf5bef47afb85af41.stex" ]
+source_file="res://assets/sprites/sandvich.jpeg"
+dest_files=[ "res://.import/sandvich.jpeg-88d342825eb71d220d9757cef2b721bd.stex" ]
 
 [params]
 
