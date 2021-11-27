@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://fireball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Map.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Dragon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
@@ -19,7 +18,7 @@ position = Vector2( -2463, -2518 )
 position = Vector2( 285, 1318 )
 
 [node name="nest" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1835, -95 )
+position = Vector2( 2450, 150 )
 
 [node name="campfire" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2612, 1647 )

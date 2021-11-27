@@ -19,7 +19,7 @@ func _process(delta):
 	if nodes.size() > 0:
 		for node in nodes:
 			print(node.global_position)
-			get_parent().get_parent().add_child(node)
+			#get_parent().get_parent().add_child(node)
 			nodes = []
 	pass
 	
