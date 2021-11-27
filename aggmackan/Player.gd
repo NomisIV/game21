@@ -1,13 +1,30 @@
 extends KinematicBody2D
 
+enum Items {
+	NONE,
+	EGG,
+	CAVIAR,
+}
+
 const NORMAL_SPEED = 150
 const EGG_SPEED = 100
+<<<<<<< HEAD
 const MAX_HP = 3
 var speed = NORMAL_SPEED
 var has_egg : bool = false
 var dodge_speed = 400
 var dodge_time = 0.2
 var hp = MAX_HP
+=======
+const DODGE_SPEED = 400
+const DODGE_TIME = 0.2
+const CAVIAR_SQUIRTS = 5
+
+var speed = NORMAL_SPEED
+var equipped_item = Items.NONE
+var hp = 3
+var remaining_caviar = 0
+>>>>>>> 5dc88af95c87b6e547412c2a319e75c7ff99a0a7
 
 var score = 0
 var vel : Vector2 = Vector2()
@@ -35,13 +52,15 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
 		vel.x = speed
 
-	if Input.is_action_just_released("dodge"):
+	if Input.is_action_just_released("dodge") and equipped_item == Items.CAVIAR:
 		dodge_emmiter.rotation_degrees = 0
 		dodge_emmiter.rotate(vel.angle()+PI/2)
-		dodge_timer.start(dodge_time)
-		vel = vel.normalized()*dodge_speed
+		dodge_timer.start(DODGE_TIME)
+		remaining_caviar -= 1
+		if remaining_caviar == 0:
+			equipped_item = Items.NONE
+		vel = vel.normalized()*DODGE_SPEED
 		dodge_vel = vel
-		
 	
 	if dodge_timer.time_left != 0:
 		vel = dodge_vel
@@ -66,14 +85,17 @@ func _physics_process(delta):
 
 		
 func pick_up_egg():
-	has_egg = true
+	equipped_item = Items.EGG
 	speed = EGG_SPEED
-	
+
 func drop_of_egg():
-	has_egg = false
+	equipped_item = Items.NONE
 	score += 1
 	speed = NORMAL_SPEED
 
 func hit_by_fireball():
 	hp -= 1
 	
+func pick_up_caviar():
+	equipped_item = Items.CAVIAR
+	remaining_caviar = CAVIAR_SQUIRTS

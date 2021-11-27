@@ -8,7 +8,6 @@
 [ext_resource path="res://assets/sprites/Kviar_par.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12.7049, 10.5942 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {

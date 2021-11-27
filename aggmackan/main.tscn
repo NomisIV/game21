@@ -10,19 +10,25 @@
 [node name="Node2D2" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( -689, -949 )
+position = Vector2( 2609, 1508 )
 
-[node name="Node2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( -88, -80 )
+[node name="Map" parent="." instance=ExtResource( 3 )]
+position = Vector2( -2463, -2518 )
 
 [node name="Dragon" parent="." instance=ExtResource( 4 )]
-position = Vector2( -800, -1001 )
+position = Vector2( 285, 1318 )
 
 [node name="nest" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1835, -95 )
 
 [node name="campfire" parent="." instance=ExtResource( 6 )]
-position = Vector2( -663, -914 )
+position = Vector2( 2612, 1647 )
 
-[node name="fireball" parent="." instance=ExtResource( 1 )]
-position = Vector2( -1027.91, -1029.39 )
+[node name="Dragon2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2707, 3154 )
+
+[node name="Dragon3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 4127, 1270 )
+
+[node name="Dragon4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2382, 208 )
