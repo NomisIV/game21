@@ -9,11 +9,11 @@
 
 [node name="Node2D2" type="Node2D"]
 
-[node name="nest7" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1066, 2162 )
-
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2676, 1571 )
+
+[node name="nest7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1066, 2162 )
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
 
