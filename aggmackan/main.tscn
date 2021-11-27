@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://caviar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://CaviarSpawnPoint.tscn" type="PackedScene" id=1]
+[ext_resource path="res://CaviarHiveMind.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Map.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Dragon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://campfire.tscn" type="PackedScene" id=6]
 [ext_resource path="res://nest.tscn" type="PackedScene" id=7]
+[ext_resource path="res://caviar.tscn" type="PackedScene" id=8]
 
 [node name="Node2D2" type="Node2D"]
 
@@ -61,3 +63,68 @@ position = Vector2( 349, 1322 )
 
 [node name="nest7" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1066, 2162 )
+
+[node name="CaviarHiveMind" parent="." instance=ExtResource( 2 )]
+
+[node name="CaviarSpawnPoint1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3377, 1743 )
+
+[node name="CaviarSpawnPoint2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2213, 2119 )
+
+[node name="CaviarSpawnPoint3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1936, 1456 )
+
+[node name="CaviarSpawnPoint4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3901, 1050 )
+
+[node name="CaviarSpawnPoint5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4258, 1898 )
+
+[node name="CaviarSpawnPoint6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4253, 3020 )
+
+[node name="CaviarSpawnPoint7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3936, 2616 )
+
+[node name="CaviarSpawnPoint8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3125, 3357 )
+
+[node name="CaviarSpawnPoint9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2115, 2827 )
+
+[node name="CaviarSpawnPoint10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1229, 2548 )
+
+[node name="CaviarSpawnPoint11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1044, 1984 )
+
+[node name="CaviarSpawnPoint12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 678, 1636 )
+
+[node name="CaviarSpawnPoint13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1661, 1534 )
+
+[node name="CaviarSpawnPoint14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1142, 1005 )
+
+[node name="CaviarSpawnPoint15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1969, 1123 )
+
+[node name="CaviarSpawnPoint16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2169, 318 )
+
+[node name="CaviarSpawnPoint17" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2543, 649 )
+
+[node name="CaviarSpawnPoint18" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3703, 514 )
+
+[node name="CaviarSpawnPoint19" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3207, 878 )
+
+[node name="CaviarSpawnPoint20" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2968, 2382 )
+
+[node name="Area2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2675, 1654 )
