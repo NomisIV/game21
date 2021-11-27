@@ -6,6 +6,7 @@ var speed = NORMAL_SPEED
 var has_egg : bool = false
 var dodge_speed = 400
 var dodge_time = 0.2
+var hp = 3
 
 var score = 0
 var vel : Vector2 = Vector2()
