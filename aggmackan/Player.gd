@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
-
-var speed = 150
+const NORMAL_SPEED = 150
+const EGG_SPEED = 100
+var speed = NORMAL_SPEED
 var has_egg : bool = false
 var dodge_speed = 400
-var dodge_time = 0.1
+var dodge_time = 0.2
 
 var score = 0
 var vel : Vector2 = Vector2()
@@ -64,9 +65,9 @@ func _physics_process(delta):
 		
 func pick_up_egg():
 	has_egg = true
-	speed = 100
+	speed = EGG_SPEED
 	
 func drop_of_egg():
 	has_egg = false
 	score += 1
-	speed = 250
+	speed = NORMAL_SPEED

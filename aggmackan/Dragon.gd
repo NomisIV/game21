@@ -37,8 +37,8 @@ func track():
 	var res = astar.get_id_path(1, 3)
 	print (res)
 	
-	
-	
+func shoot_fire():
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
