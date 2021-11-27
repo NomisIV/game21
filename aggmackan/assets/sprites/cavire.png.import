@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/kalles.jpg-3ebe5316a381d166390cea8da25c113f.stex"
+path="res://.import/cavire.png-6d06eb5280d5baa2898dd63498ebd1b3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/kalles.jpg"
-dest_files=[ "res://.import/kalles.jpg-3ebe5316a381d166390cea8da25c113f.stex" ]
+source_file="res://assets/sprites/cavire.png"
+dest_files=[ "res://.import/cavire.png-6d06eb5280d5baa2898dd63498ebd1b3.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

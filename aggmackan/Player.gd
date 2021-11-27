@@ -8,13 +8,16 @@ enum Items {
 
 const NORMAL_SPEED = 150
 const EGG_SPEED = 100
+const MAX_HP = 3
+var speed = NORMAL_SPEED
+var has_egg : bool = false
+var dodge_speed = 400
+var dodge_time = 0.2
+var hp = MAX_HP
 const DODGE_SPEED = 400
 const DODGE_TIME = 0.2
 const CAVIAR_SQUIRTS = 5
-
-var speed = NORMAL_SPEED
 var equipped_item = Items.NONE
-var hp = 3
 var remaining_caviar = 0
 
 var score = 0
@@ -84,6 +87,9 @@ func drop_of_egg():
 	score += 1
 	speed = NORMAL_SPEED
 
+func hit_by_fireball():
+	hp -= 1
+	
 func pick_up_caviar():
 	equipped_item = Items.CAVIAR
 	remaining_caviar = CAVIAR_SQUIRTS
