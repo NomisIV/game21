@@ -27,13 +27,13 @@ position = Vector2( -60, 0 )
 position = Vector2( 60, 0 )
 
 [node name="down_point" type="Position2D" parent="rays"]
-position = Vector2( 0, 60 )
+position = Vector2( 0, 80 )
 
 [node name="down_l_point" type="Position2D" parent="rays"]
-position = Vector2( -40, 40 )
+position = Vector2( -50, 50 )
 
 [node name="down_r_point" type="Position2D" parent="rays"]
-position = Vector2( 40, 40 )
+position = Vector2( 50, 50 )
 
 [node name="Sprite" type="Sprite" parent="rays"]
 visible = false

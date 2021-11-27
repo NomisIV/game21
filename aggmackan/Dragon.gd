@@ -16,6 +16,7 @@ var previous_vel = Vector2(1, 0)
 var hunting_timer = 0
 var is_searching = false
 var shake_timer = 0
+var found_last_seen = false
 onready var last_seen = player.global_position
 
 var doing_burst = false
@@ -32,14 +33,20 @@ func _physics_process(delta):
 		if !is_player_in_vision:
 			hunting_timer = HUNT_COOLDOWN
 			last_seen = player.global_position
-			do_burst(delta)
+			do_burst(delta, last_seen)
 			walk_towards(last_seen)
+			found_last_seen = false
 		else:
 			var number = self.get_name()[-1]
 			var nest_position = get_parent().get_node("nest" + number).global_position
 			if hunting_timer > 0:
-				do_burst(delta)
-				walk_towards(last_seen)
+				if global_position.distance_to(last_seen) > DISTANCE_TO_BE_HOME/8 and !found_last_seen:
+					do_burst(delta, last_seen)
+					walk_towards(last_seen)
+				else:
+					found_last_seen = true
+					do_burst(delta, player.global_position)
+					walk_towards(player.global_position)
 				hunting_timer -= delta
 				is_searching = true
 			elif is_searching:
@@ -56,13 +63,13 @@ func shake(delta):
 	vel = Vector2(rng.randf_range(-200, 200), rng.randf_range(-200, 200))
 	move_and_slide(vel, Vector2.UP)
 	
-func do_burst(delta):
+func do_burst(delta, target):
 	if doing_burst or fire_rate > FIRE_RATE_TIME:
 		if !doing_burst:
 			shots_in_burst = MAX_SHOTS
 			doing_burst = true
 		if shots_in_burst > 0 and burst_rate > BURST_RATE_TIME:
-			shoot_fire_towards(last_seen)
+			shoot_fire_towards(target)
 			shots_in_burst -= 1
 			burst_rate = 0
 		else:
@@ -97,13 +104,13 @@ func walk_towards(target):
 
 	if raycast_d_result:
 		vel += vel.rotated(TURN_AMOUNT)
-	if raycast_l_result:
+	elif raycast_l_result:
 		vel += vel.rotated(-TURN_AMOUNT)
-	if raycast_r_result:
+	elif raycast_r_result:
 		vel += vel.rotated(TURN_AMOUNT)
-	if raycast_dl_result:
+	elif raycast_dl_result:
 		vel += vel.rotated(-TURN_AMOUNT/2)
-	if raycast_dr_result:
+	elif raycast_dr_result:
 		vel += vel.rotated(TURN_AMOUNT/2)
 		
 	previous_vel = vel
