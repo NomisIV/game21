@@ -2,10 +2,12 @@ extends Node2D
 
 const NUM_OF_POINTS = 20
 const NAME_PREFIX = "CaviarSpawnPoint"
+# Amount of time when the caviars should start blinking to warn about their despawn
+const WARNING_TIME = 10
 # Amount of time between the spawns
-const SPAWN_TIME = 30
+const SPAWN_TIME = 15
 # Amount of caviars spawning during each spawn phase
-const SPAWN_RATE = 10
+const SPAWN_RATE = 12
 
 var spawnPoints = []
 var time = 0
@@ -22,6 +24,8 @@ func _process(delta):
 	elif time > SPAWN_TIME:
 		despawnCaviars()
 		spawnCaviars()
+	elif time > WARNING_TIME:
+		warnCaviars()
 		
 	time += delta
 	
@@ -44,8 +48,14 @@ func spawnCaviars():
 func despawnCaviars():
 	var randSpawnPoints = getRandomSpawnPoints()
 	for spawnPoint in spawnPoints:
-		spawnPoint.despawnCaviar()
-		time = 0
+		if spawnPoint.hasCaviar():
+			spawnPoint.despawnCaviar()
+	time = 0
+
+func warnCaviars():
+	for spawnPoint in spawnPoints:
+		if spawnPoint.hasCaviar():
+			spawnPoint.doBlink()
 
 # Get the caviar node from the string representation.
 func getSpawnPointFromName(name):
