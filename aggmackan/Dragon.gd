@@ -4,12 +4,13 @@ const FIRE_RATE_TIME = 1
 const BURST_RATE_TIME = 0.1
 const SPEED = 100
 const TURN_AMOUNT = PI/2
+const HUNT_COOLDOWN = 5
 const Fireball = preload("res://fireball.tscn")
 onready var player = get_parent().get_node("Player")
 onready var tileMap = get_parent().get_node("Map").get_child(0)
 var test = true
 var vel = Vector2(1, 0)
-var is_hunting = false
+var hunting_timer = 0
 
 var doing_burst = false
 var shots_in_burst = MAX_SHOTS
@@ -19,14 +20,18 @@ var burst_rate = BURST_RATE_TIME
 
 	
 func _physics_process(delta):
-	do_burst(delta)
-	walk_towards(player.global_position)
 	var space_state = get_world_2d().direct_space_state
 	var is_player_in_vision = space_state.intersect_ray(self.global_position, player.global_position, [self, player])
-	if is_player_in_vision:
-		is_hunting = true
+	if !is_player_in_vision:
+		hunting_timer = HUNT_COOLDOWN
+		do_burst(delta)
+		walk_towards(player.global_position)
+	else:
+		if hunting_timer > 0:
+			do_burst(delta)
+			walk_towards(player.global_position)
+			hunting_timer -= delta
 
-		
 
 func do_burst(delta):
 	if doing_burst or fire_rate > FIRE_RATE_TIME:
