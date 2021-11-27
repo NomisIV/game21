@@ -8,7 +8,7 @@ enum Items {
 
 const NORMAL_SPEED = 150
 const EGG_SPEED = 100
-const MAX_HP = 3
+const MAX_HP = 8
 var speed = NORMAL_SPEED
 var has_egg : bool = false
 var dodge_speed = 400
@@ -74,7 +74,7 @@ func _physics_process(delta):
 	elif vel.x < 0:
 		sprite.flip_h = true
 
-		
+	sprite.speed_scale = vel.length()*0.013
 	move_and_slide(vel, Vector2.UP)
 
 		
@@ -85,10 +85,17 @@ func pick_up_egg():
 func drop_of_egg():
 	equipped_item = Items.NONE
 	score += 1
+	hp = MAX_HP
 	speed = NORMAL_SPEED
 
 func hit_by_fireball():
 	hp -= 1
+	if hp <= 0:
+		global_position = get_parent().get_node("campfire").global_position
+		equipped_item = Items.NONE
+		print(score)
+		score = 0
+		
 	
 func pick_up_caviar():
 	equipped_item = Items.CAVIAR
