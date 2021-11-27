@@ -12,19 +12,13 @@
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2676, 1571 )
 
-[node name="nest7" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1066, 2162 )
-
 [node name="Map" parent="." instance=ExtResource( 3 )]
-
-[node name="Dragon" parent="." instance=ExtResource( 4 )]
-position = Vector2( 402, 1416 )
-
-[node name="nest" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2450, 150 )
 
 [node name="campfire" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2673, 1713 )
+
+[node name="Dragon1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2473, 319 )
 
 [node name="Dragon2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2799, 3262 )
@@ -33,34 +27,37 @@ position = Vector2( 2799, 3262 )
 position = Vector2( 4054, 1354 )
 
 [node name="Dragon4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2473, 319 )
+position = Vector2( 4786, 2198 )
+
+[node name="Dragon5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1386.52, 1469.98 )
+
+[node name="Dragon6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 402, 1416 )
+
+[node name="Dragon7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1041, 2247 )
 
 [node name="Caviar1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2888, 1507 )
 
-[node name="Dragon5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2500, 1461 )
-
-[node name="Dragon6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1041, 2247 )
-
-[node name="Dragon7" parent="." instance=ExtResource( 4 )]
-position = Vector2( 4786, 2198 )
+[node name="nest1" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2482.79, 212.226 )
 
 [node name="nest2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 4853, 2331 )
+position = Vector2( 2772, 3152 )
 
 [node name="nest3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 4247, 1414 )
 
 [node name="nest4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1273, 1481 )
+position = Vector2( 4853, 2331 )
 
 [node name="nest5" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2496, 206 )
+position = Vector2( 1273, 1481 )
 
 [node name="nest6" parent="." instance=ExtResource( 7 )]
 position = Vector2( 349, 1322 )
 
-[node name="nest8" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2772, 3152 )
+[node name="nest7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1066, 2162 )
