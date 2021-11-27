@@ -8,23 +8,17 @@ enum Items {
 
 const NORMAL_SPEED = 150
 const EGG_SPEED = 100
-<<<<<<< HEAD
 const MAX_HP = 3
 var speed = NORMAL_SPEED
 var has_egg : bool = false
 var dodge_speed = 400
 var dodge_time = 0.2
 var hp = MAX_HP
-=======
 const DODGE_SPEED = 400
 const DODGE_TIME = 0.2
 const CAVIAR_SQUIRTS = 5
-
-var speed = NORMAL_SPEED
 var equipped_item = Items.NONE
-var hp = 3
 var remaining_caviar = 0
->>>>>>> 5dc88af95c87b6e547412c2a319e75c7ff99a0a7
 
 var score = 0
 var vel : Vector2 = Vector2()
