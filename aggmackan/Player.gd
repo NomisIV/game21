@@ -10,9 +10,12 @@ const NORMAL_SPEED = 150
 const EGG_SPEED = 100
 const DODGE_SPEED = 400
 const DODGE_TIME = 0.2
+const CAVIAR_SQUIRTS = 5
+
 var speed = NORMAL_SPEED
 var equipped_item = Items.NONE
 var hp = 3
+var remaining_caviar = 0
 
 var score = 0
 var vel : Vector2 = Vector2()
@@ -44,9 +47,11 @@ func _physics_process(delta):
 		dodge_emmiter.rotation_degrees = 0
 		dodge_emmiter.rotate(vel.angle()+PI/2)
 		dodge_timer.start(DODGE_TIME)
+		remaining_caviar -= 1
+		if remaining_caviar == 0:
+			equipped_item = Items.NONE
 		vel = vel.normalized()*DODGE_SPEED
 		dodge_vel = vel
-		
 	
 	if dodge_timer.time_left != 0:
 		vel = dodge_vel
@@ -81,4 +86,4 @@ func drop_of_egg():
 
 func pick_up_caviar():
 	equipped_item = Items.CAVIAR
-	
+	remaining_caviar = CAVIAR_SQUIRTS
