@@ -5,6 +5,10 @@ var size
 const pathNode = preload("res://pathNode.tscn")
 var nodes = []
 
+# Graveyard code for AStar, the culmination of an entire day of work, wasted.
+# I wish to never lay my eyes on this monstrosity again, may it remain in obscurity
+# and never see the light of day. 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	astar = AStar2D.new()
@@ -12,17 +16,8 @@ func _ready():
 	size = get_used_rect().size
 	# Reserve a sufficient amount of space
 	astar.reserve_space(size.x * size.y)
-	initAStarMap()
+	#initAStarMap()
 
-func _process(delta):
-	# For testing
-	if nodes.size() > 0:
-		for node in nodes:
-			print(node.global_position)
-			get_parent().get_parent().add_child(node)
-			nodes = []
-	pass
-	
 # Initialize the pathfinding algorithm
 func initAStarMap():
 	addAStarPoints()
@@ -30,13 +25,11 @@ func initAStarMap():
 
 # Add every map tile to AStar
 func addAStarPoints():
+	astar.add_point(0, Vector2(0,0))
 	for y in size.y:
 		for x in size.x:
 			var vector = Vector2(x, y)
 			var id = getAStarCellById(vector)
-			var node = pathNode.instance()
-			node.global_position = map_to_world(vector)
-			nodes.push_back(node)
 			astar.add_point(id, map_to_world(vector))
 
 # Connect the points that are valid 
@@ -44,8 +37,12 @@ func connectAStarPoints():
 	for y in size.y:
 		for x in size.x:
 			var vector = Vector2(x, y)
-			if get_cellv(vector) == 1:
+			if get_cellv(vector) == -1:
 				var id = getAStarCellById(vector)
+				
+				var node = pathNode.instance()
+				node.global_position = map_to_world(vector)
+				nodes.push_back(node)
 				
 				# Calculate every neighbour of the point
 				var neighbours = [
@@ -82,10 +79,10 @@ func changeCellStatus(globalPos:Vector2, state:bool):
 
 func getAStarPath(startPos:Vector2, endPos:Vector2):
 	var cellStart = world_to_map(startPos)
-	var idStart = getAStarCellById(startPos)
+	var idStart = getAStarCellById(cellStart)
 	var cellEnd = world_to_map(endPos)
-	var idEnd = getAStarCellById(endPos)
-	
+	var idEnd = getAStarCellById(cellEnd)
+
 	if astar.has_point(idStart) and astar.has_point(idEnd):
 		return Array(astar.get_point_path(idStart, idEnd))
 	return []
