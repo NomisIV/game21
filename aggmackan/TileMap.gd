@@ -23,7 +23,6 @@ func addAStarPoints():
 			var vector = Vector2(x, y)
 			var id = getAStarCellById(vector)
 			astar.add_point(id, map_to_world(vector))
-			print (get_cellv(vector))
 
 # Connect the points that are valid 
 func connectAStarPoints():

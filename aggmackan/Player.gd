@@ -2,10 +2,12 @@ extends KinematicBody2D
 
 const NORMAL_SPEED = 150
 const EGG_SPEED = 100
+const MAX_HP = 3
 var speed = NORMAL_SPEED
 var has_egg : bool = false
 var dodge_speed = 400
 var dodge_time = 0.2
+var hp = MAX_HP
 
 var score = 0
 var vel : Vector2 = Vector2()
@@ -71,3 +73,7 @@ func drop_of_egg():
 	has_egg = false
 	score += 1
 	speed = NORMAL_SPEED
+
+func hit_by_fireball():
+	hp -= 1
+	
