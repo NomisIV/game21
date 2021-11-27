@@ -2,6 +2,8 @@ extends TileMap
 
 var astar
 var size
+const pathNode = preload("res://pathNode.tscn")
+var nodes = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,9 +14,19 @@ func _ready():
 	astar.reserve_space(size.x * size.y)
 	initAStarMap()
 
+func _process(delta):
+	# For testing
+	#if nodes.size() > 0:
+	#	for node in nodes:
+	#		print(node.global_position)
+	#		get_parent().get_parent().add_child(node)
+	#		nodes = []
+	pass
+	
 # Initialize the pathfinding algorithm
 func initAStarMap():
 	addAStarPoints()
+	connectAStarPoints()
 
 # Add every map tile to AStar
 func addAStarPoints():
@@ -22,31 +34,35 @@ func addAStarPoints():
 		for x in size.x:
 			var vector = Vector2(x, y)
 			var id = getAStarCellById(vector)
+			var node = pathNode.instance()
+			node.global_position = map_to_world(vector)
+			nodes.push_back(node)
 			astar.add_point(id, map_to_world(vector))
-			print (get_cellv(vector))
 
 # Connect the points that are valid 
 func connectAStarPoints():
 	for y in size.y:
 		for x in size.x:
-			var id = getAStarCellById(Vector2(x, y))
-			
-			# Calculate every neighbour of the point
-			var neighbours = [
-				Vector2(x, y-1), Vector2(x, y+1),
-				Vector2(x-1, y), Vector2(x+1,y),
-				Vector2(x-1, y-1), Vector2(x-1, y+1), 
-				Vector2(x+1, y-1), Vector2(x+1, y+1)
-				]
-			
-			for neighbour in neighbours:
-				var idNeighbour = getAStarCellById(Vector2(x, y))
-				# Check if the point exists in the AStar mapping
-				if astar.has_point(idNeighbour):
-					# Connect the two points. This has to be changed
-					# for objects that are larger than one tile and cannot
-					# move too close to the edges.
-					astar.connect_points(id, idNeighbour, false)
+			var vector = Vector2(x, y)
+			if get_cellv(vector) == 1:
+				var id = getAStarCellById(vector)
+				
+				# Calculate every neighbour of the point
+				var neighbours = [
+					Vector2(x, y-1), Vector2(x, y+1),
+					Vector2(x-1, y), Vector2(x+1,y),
+					Vector2(x-1, y-1), Vector2(x-1, y+1), 
+					Vector2(x+1, y-1), Vector2(x+1, y+1)
+					]
+				
+				for neighbour in neighbours:
+					var idNeighbour = getAStarCellById(Vector2(x, y))
+					# Check if the point exists in the AStar mapping
+					if astar.has_point(idNeighbour):
+						# Connect the two points. This has to be changed
+						# for objects that are larger than one tile and cannot
+						# move too close to the edges.
+						astar.connect_points(id, idNeighbour, false)
 
 # Mark an AStar cell as occupied
 func occupyAStarCell(globalPos:Vector2):
@@ -64,6 +80,16 @@ func changeCellStatus(globalPos:Vector2, state:bool):
 	if astar.has_points(id):
 		astar.set_point_disabled(state)
 
+func getAStarPath(startPos:Vector2, endPos:Vector2):
+	var cellStart = world_to_map(startPos)
+	var idStart = getAStarCellById(startPos)
+	var cellEnd = world_to_map(endPos)
+	var idEnd = getAStarCellById(endPos)
+	
+	if astar.has_point(idStart) and astar.has_point(idEnd):
+		return Array(astar.get_point_path(idStart, idEnd))
+	return []
+	
 func getAStarCellById(vCell:Vector2):
 	return vCell.y + (vCell.x * size.y)
 

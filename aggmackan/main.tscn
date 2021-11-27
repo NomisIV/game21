@@ -11,7 +11,7 @@
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( -689, -949 )
 
-[node name="Node2D" parent="." instance=ExtResource( 3 )]
+[node name="Map" parent="." instance=ExtResource( 3 )]
 position = Vector2( -88, -80 )
 
 [node name="Dragon" parent="." instance=ExtResource( 4 )]
