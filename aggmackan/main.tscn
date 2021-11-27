@@ -1,6 +1,5 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://fireball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://caviar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Map.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Dragon.tscn" type="PackedScene" id=4]
@@ -11,58 +10,54 @@
 [node name="Node2D2" type="Node2D"]
 
 [node name="nest7" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1013, 2132 )
+position = Vector2( 1066, 2162 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2609, 1508 )
+position = Vector2( 2676, 1571 )
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
 
 [node name="Dragon" parent="." instance=ExtResource( 4 )]
-position = Vector2( 402, 1416 )
-
-[node name="nest" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1835, -95 )
+position = Vector2( 377, 1441 )
 
 [node name="campfire" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2612, 1647 )
+position = Vector2( 2667, 1707 )
 
 [node name="Dragon2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2878, 3177 )
+position = Vector2( 2799, 3262 )
 
 [node name="Dragon3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 4084, 1315 )
+position = Vector2( 4054, 1354 )
 
 [node name="Dragon4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2382, 208 )
+position = Vector2( 2473, 319 )
 
 [node name="Caviar1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3070, 1388 )
-position = Vector2( 2370, 239 )
+position = Vector2( 2888, 1507 )
 
 [node name="Dragon5" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1399, 1461 )
 
 [node name="Dragon6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1205, 2181 )
+position = Vector2( 1041, 2247 )
 
 [node name="Dragon7" parent="." instance=ExtResource( 4 )]
-position = Vector2( 4780, 2184 )
+position = Vector2( 4786, 2198 )
 
 [node name="nest2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 4782, 2289 )
+position = Vector2( 4853, 2331 )
 
 [node name="nest3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 3940, 1319 )
+position = Vector2( 4247, 1414 )
 
 [node name="nest4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1286, 1340 )
+position = Vector2( 1273, 1481 )
 
 [node name="nest5" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2428, 113 )
+position = Vector2( 2496, 206 )
 
 [node name="nest6" parent="." instance=ExtResource( 7 )]
-position = Vector2( 294, 1307 )
+position = Vector2( 349, 1322 )
 
 [node name="nest8" parent="." instance=ExtResource( 7 )]
-position = Vector2( 2990, 3257 )
+position = Vector2( 2772, 3152 )
