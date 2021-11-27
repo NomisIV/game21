@@ -1,6 +1,6 @@
 extends KinematicBody2D
-const MAX_SHOTS = 5
-const FIRE_RATE_TIME = 1
+const MAX_SHOTS = 3
+const FIRE_RATE_TIME = 0.5
 const BURST_RATE_TIME = 0.1
 const SPEED = 150
 const TURN_AMOUNT = PI/2
@@ -22,6 +22,7 @@ onready var last_seen = player.global_position
 var doing_burst = false
 var shots_in_burst = MAX_SHOTS
 var fire_rate = FIRE_RATE_TIME
+var fire_rate_timer = FIRE_RATE_TIME
 var burst_rate = BURST_RATE_TIME
 
 
@@ -64,9 +65,9 @@ func shake(delta):
 	move_and_slide(vel, Vector2.UP)
 	
 func do_burst(delta, target):
-	if doing_burst or fire_rate > FIRE_RATE_TIME:
+	if doing_burst or fire_rate > fire_rate_timer:
 		if !doing_burst:
-			shots_in_burst = MAX_SHOTS
+			shots_in_burst = MAX_SHOTS + rng.randi_range(0, 3)
 			doing_burst = true
 		if shots_in_burst > 0 and burst_rate > BURST_RATE_TIME:
 			shoot_fire_towards(target)
@@ -77,12 +78,13 @@ func do_burst(delta, target):
 		if shots_in_burst <= 0:
 			doing_burst = false
 			fire_rate = 0
+			fire_rate_timer = FIRE_RATE_TIME + rng.randf_range(0, 1.5)
 	else:
 		fire_rate += delta
 		
 		
 func shoot_fire_towards(target):
-	var spread = rng.randf_range(-PI/8, PI/8)
+	var spread = rng.randf_range(-PI/12, PI/12)
 	var fireball = Fireball.instance()
 	get_parent().add_child(fireball)
 	fireball.transform = global_transform
