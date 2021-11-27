@@ -8,10 +8,10 @@ enum Items {
 
 const NORMAL_SPEED = 150
 const EGG_SPEED = 100
+const DODGE_SPEED = 400
+const DODGE_TIME = 0.2
 var speed = NORMAL_SPEED
 var equipped_item = Items.NONE
-var dodge_speed = 400
-var dodge_time = 0.2
 var hp = 3
 
 var score = 0
@@ -43,8 +43,8 @@ func _physics_process(delta):
 	if Input.is_action_just_released("dodge") and equipped_item == Items.CAVIAR:
 		dodge_emmiter.rotation_degrees = 0
 		dodge_emmiter.rotate(vel.angle()+PI/2)
-		dodge_timer.start(dodge_time)
-		vel = vel.normalized()*dodge_speed
+		dodge_timer.start(DODGE_TIME)
+		vel = vel.normalized()*DODGE_SPEED
 		dodge_vel = vel
 		
 	
