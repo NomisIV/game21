@@ -24,7 +24,7 @@ position = Vector2( 402, 1416 )
 position = Vector2( 2450, 150 )
 
 [node name="campfire" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2667, 1707 )
+position = Vector2( 2673, 1713 )
 
 [node name="Dragon2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2799, 3262 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/campfire.jpeg-e5c265ee04ce93957ee881e019f167bb.stex"
+path="res://.import/fireplace.png-740066bbb185955cce12246c6619d3b3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/campfire.jpeg"
-dest_files=[ "res://.import/campfire.jpeg-e5c265ee04ce93957ee881e019f167bb.stex" ]
+source_file="res://assets/sprites/fireplace.png"
+dest_files=[ "res://.import/fireplace.png-740066bbb185955cce12246c6619d3b3.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
