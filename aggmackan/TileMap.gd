@@ -18,6 +18,16 @@ func _ready():
 	astar.reserve_space(size.x * size.y)
 	#initAStarMap()
 
+
+func _process(delta):
+	# For testing
+	if nodes.size() > 0:
+		for node in nodes:
+			print(node.global_position)
+			#get_parent().get_parent().add_child(node)
+			nodes = []
+	pass
+
 # Initialize the pathfinding algorithm
 func initAStarMap():
 	addAStarPoints()

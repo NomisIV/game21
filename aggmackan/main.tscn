@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://caviar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Map.tscn" type="PackedScene" id=3]
@@ -18,7 +18,14 @@ position = Vector2( 2676, 1571 )
 [node name="Map" parent="." instance=ExtResource( 3 )]
 
 [node name="Dragon" parent="." instance=ExtResource( 4 )]
+<<<<<<< HEAD
 position = Vector2( 377, 1441 )
+=======
+position = Vector2( 402, 1416 )
+
+[node name="nest" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2450, 150 )
+>>>>>>> a0b9df398d9e31f7bd7a29ed0db1ae3c5a61e5e4
 
 [node name="campfire" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2667, 1707 )
