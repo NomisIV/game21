@@ -17,21 +17,28 @@ var hunting_timer = 0
 var is_searching = false
 var shake_timer = 0
 var found_last_seen = false
+var just_found = true
+var stunned = false
 onready var last_seen = player.global_position
-
 var doing_burst = false
 var shots_in_burst = MAX_SHOTS
 var fire_rate = FIRE_RATE_TIME
 var fire_rate_timer = FIRE_RATE_TIME
 var burst_rate = BURST_RATE_TIME
 
+onready var stun_timer = get_node("Timer")
 
-	
 func _physics_process(delta):
-	if shake_timer <= 0:
+	if stun_timer.time_left == 0:
+		stunned = false
+		
+	if shake_timer <= 0 and !stunned:
 		var space_state = get_world_2d().direct_space_state
 		var is_player_in_vision = space_state.intersect_ray(self.global_position, player.global_position, [self, player])
 		if !is_player_in_vision:
+			if just_found:
+				get_parent().get_node("Music_master").play_run()
+				just_found = false
 			hunting_timer = HUNT_COOLDOWN
 			last_seen = player.global_position
 			do_burst(delta, last_seen)
@@ -51,7 +58,10 @@ func _physics_process(delta):
 				hunting_timer -= delta
 				is_searching = true
 			elif is_searching:
+				just_found = true
+				get_parent().get_node("Music_master").stop_run()
 				is_searching = false
+				player.score += 20
 				shake_timer = 2
 			elif self.global_position.distance_to(nest_position) > DISTANCE_TO_BE_HOME:
 				walk_towards(nest_position)
@@ -121,3 +131,7 @@ func walk_towards(target):
 	vel.y *= SPEED
 	vel = vel.clamped(SPEED)
 	move_and_slide(vel, Vector2.UP)
+
+func hit_by_tomato():
+	stunned = true
+	stun_timer.start()

@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "RichTextEffect",
+"class": "RichTextGhost",
+"language": "GDScript",
+"path": "res://TitleText.gd"
+}, {
+"base": "RichTextEffect",
+"class": "RichTextMatrix",
+"language": "GDScript",
+"path": "res://Matrix.gd"
+}, {
+"base": "RichTextEffect",
+"class": "RichTextPulse",
+"language": "GDScript",
+"path": "res://Pulse.gd"
+} ]
+_global_script_class_icons={
+"RichTextGhost": "",
+"RichTextMatrix": "",
+"RichTextPulse": ""
+}
+
 [application]
 
 config/name="Ägg Mackan"
