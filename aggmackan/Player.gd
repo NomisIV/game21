@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const Tomato = preload("res://tomato.tscn")
+
 const NORMAL_SPEED = 170
 const EGG_SPEED = 100
 const MAX_HP = 10
@@ -42,6 +44,9 @@ func _physics_process(delta):
 		vel.x = -speed
 	if Input.is_action_pressed("move_right"):
 		vel.x = speed
+	
+	if Input.is_action_just_pressed("throw"):
+		throw_tomato()
 
 	if Input.is_action_just_released("dodge") and remaining_caviar > 0:
 		dodge_emmiter.rotation_degrees = 0
@@ -111,3 +116,9 @@ func hit_by_fireball():
 	
 func pick_up_caviar():
 	remaining_caviar = CAVIAR_SQUIRTS
+
+func throw_tomato():
+	var tomato = Tomato.instance()
+	get_parent().add_child(tomato)
+	tomato.transform = global_transform
+	tomato.rotate(vel.angle())

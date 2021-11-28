@@ -18,6 +18,10 @@ position = Vector2( 0, -2 )
 scale = Vector2( 0.381285, 0.316667 )
 texture = ExtResource( 1 )
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [node name="rays" type="Node2D" parent="."]
 
 [node name="left_point" type="Position2D" parent="rays"]
