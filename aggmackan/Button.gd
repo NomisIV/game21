@@ -11,7 +11,7 @@ func _ready():
 	self.connect("pressed", self, "press")
 	
 func press():
-	print("test")
+	get_tree().change_scene("res://main.tscn")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
