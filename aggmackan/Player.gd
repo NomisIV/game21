@@ -90,7 +90,8 @@ func _physics_process(delta):
 	else:
 		egg_icon.visible = false
 		
-	score_text.text = String(score)
+	score_text.bbcode_text = "[right]" + String(score)
+
 	
 func pick_up_egg():
 	equipped_item = Items.EGG
