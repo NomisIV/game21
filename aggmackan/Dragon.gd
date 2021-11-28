@@ -61,6 +61,7 @@ func _physics_process(delta):
 				just_found = true
 				get_parent().get_node("Music_master").stop_run()
 				is_searching = false
+				player.score += 20
 				shake_timer = 2
 			elif self.global_position.distance_to(nest_position) > DISTANCE_TO_BE_HOME:
 				walk_towards(nest_position)

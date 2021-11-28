@@ -115,6 +115,7 @@ func hit_by_fireball():
 		
 	
 func pick_up_caviar():
+	score += 10
 	remaining_caviar = CAVIAR_SQUIRTS
 
 func throw_tomato():
