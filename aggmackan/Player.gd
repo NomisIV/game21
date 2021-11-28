@@ -96,7 +96,7 @@ func pick_up_egg():
 func drop_of_egg():
 	if has_egg:
 		has_egg = false
-		score += 1
+		score += 100
 		hp = MAX_HP
 		speed = NORMAL_SPEED
 
@@ -115,6 +115,7 @@ func hit_by_fireball():
 		
 	
 func pick_up_caviar():
+	score += 10
 	remaining_caviar = CAVIAR_SQUIRTS
 
 func throw_tomato():
