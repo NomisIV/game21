@@ -8,9 +8,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+# Called every frame. 'delta' is the elapsed time since the previous frame.	
 func _physics_process(delta):
 	position += transform.x * speed * delta
 	get_node("Sprite").rotate(PI/12)
@@ -25,3 +23,4 @@ func _on_Bullet_body_entered(body):
 		body.hit_by_tomato()
 	if !body.has_method("throw_tomato"):
 		queue_free()
+
