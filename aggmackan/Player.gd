@@ -24,6 +24,7 @@ onready var sprite = get_node("AnimatedSprite")
 onready var dodge_emmiter = get_node("dodge_par")
 onready var hp_bar = get_parent().get_node("UI/hp_bar")
 onready var caviar_bar = get_parent().get_node("UI/caviar_bar")
+onready var tomato_bar = get_parent().get_node("UI/tomato_bar")
 onready var egg_icon = get_parent().get_node("UI/egg_icon")
 onready var score_text = get_parent().get_node("UI/score_text")
 
@@ -82,6 +83,8 @@ func _physics_process(delta):
 	
 	hp_bar.value = hp
 	caviar_bar.value = remaining_caviar
+	tomato_bar.value = tomatoes
+	
 	if has_egg:
 		egg_icon.visible = true
 	else:
@@ -110,7 +113,6 @@ func hit_by_fireball():
 		remaining_caviar = 0
 		speed = NORMAL_SPEED
 		hp = MAX_HP
-		print(score)
 		score = 0
 		get_tree().reload_current_scene()
 		

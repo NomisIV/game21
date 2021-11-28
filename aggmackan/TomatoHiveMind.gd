@@ -66,7 +66,6 @@ func getRandomSpawnPoints():
 	var spawnPoints = []
 	
 	for i in range(1, SPAWN_RATE + 1):
-		print("hej")
 		var spawnPoint = NAME_PREFIX + str(int(rand_range(1, NUM_OF_POINTS + 1)))
 		spawnPoint = getSpawnPointFromName(spawnPoint)
 		# Absolutely garbage code, give me a do while for ffs
