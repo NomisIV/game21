@@ -174,9 +174,11 @@ __meta__ = {
 }
 
 [node name="score_text" type="RichTextLabel" parent="UI"]
-margin_left = 848.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -224.0
 margin_top = 48.0
-margin_right = 888.0
+margin_right = -184.0
 margin_bottom = 88.0
 grow_horizontal = 0
 rect_scale = Vector2( 4, 4 )
