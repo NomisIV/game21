@@ -109,6 +109,8 @@ func hit_by_fireball():
 		hp = MAX_HP
 		global_position = get_parent().get_node("campfire").global_position
 		equipped_item = Items.NONE
+		speed = NORMAL_SPEED
+		hp = MAX_HP
 		print(score)
 		score = 0
 		

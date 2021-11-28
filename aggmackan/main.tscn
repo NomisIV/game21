@@ -13,7 +13,6 @@
 [ext_resource path="res://assets/sprites/kaviar_meter_back.png" type="Texture" id=11]
 
 [sub_resource type="StreamTexture" id=1]
-flags = 4
 load_path = "res://.import/kaviar_meter_top.png-555f67e9e648fd54fe9169963793e271.stex"
 
 [node name="Node2D2" type="Node2D"]
@@ -47,9 +46,6 @@ position = Vector2( 402, 1416 )
 [node name="Dragon7" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1041, 2247 )
 
-[node name="Caviar1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2888, 1507 )
-
 [node name="nest1" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2482.79, 212.226 )
 
@@ -77,7 +73,7 @@ position = Vector2( 1066, 2162 )
 position = Vector2( 3377, 1743 )
 
 [node name="CaviarSpawnPoint2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2213, 2119 )
+position = Vector2( 2163, 2192 )
 
 [node name="CaviarSpawnPoint3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1936, 1456 )
@@ -119,7 +115,7 @@ position = Vector2( 1142, 1005 )
 position = Vector2( 1969, 1123 )
 
 [node name="CaviarSpawnPoint16" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2169, 318 )
+position = Vector2( 2126, 371 )
 
 [node name="CaviarSpawnPoint17" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2543, 649 )
