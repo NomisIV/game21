@@ -1,6 +1,6 @@
 extends Area2D
 
-const BLINK_COLOR = Color(1,0,0)
+const BLINK_COLOR = Color(1,0.5,0.5)
 const BLINK_INTERVALL = 0.4
 
 onready var collisionBox = get_node("CollisionShape2D")
