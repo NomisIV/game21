@@ -17,6 +17,7 @@ var hunting_timer = 0
 var is_searching = false
 var shake_timer = 0
 var found_last_seen = false
+var stunned = false
 onready var last_seen = player.global_position
 
 var doing_burst = false
@@ -25,10 +26,13 @@ var fire_rate = FIRE_RATE_TIME
 var fire_rate_timer = FIRE_RATE_TIME
 var burst_rate = BURST_RATE_TIME
 
+onready var stun_timer = get_node("Timer")
 
-	
 func _physics_process(delta):
-	if shake_timer <= 0:
+	if stun_timer.time_left == 0:
+		stunned = false
+		
+	if shake_timer <= 0 and !stunned:
 		var space_state = get_world_2d().direct_space_state
 		var is_player_in_vision = space_state.intersect_ray(self.global_position, player.global_position, [self, player])
 		if !is_player_in_vision:
@@ -121,3 +125,7 @@ func walk_towards(target):
 	vel.y *= SPEED
 	vel = vel.clamped(SPEED)
 	move_and_slide(vel, Vector2.UP)
+
+func hit_by_tomato():
+	stunned = true
+	stun_timer.start()
