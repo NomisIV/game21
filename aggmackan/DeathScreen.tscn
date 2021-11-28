@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://ExitButton.gd" type="Script" id=1]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Label.gd" type="Script" id=3]
+[ext_resource path="res://PlayAgainButton.gd" type="Script" id=4]
+[ext_resource path="res://ScoreLabel.gd" type="Script" id=5]
+[ext_resource path="res://assets/sprites/dragon.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/black.jpeg" type="Texture" id=7]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -132.0
+margin_top = 384.0
+margin_right = 172.0
+margin_bottom = 441.0
+custom_fonts/font = ExtResource( 2 )
+text = "Exit Game"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -212.0
+margin_top = 64.0
+margin_right = 236.0
+margin_bottom = 157.0
+custom_fonts/font = ExtResource( 2 )
+text = "You Have Died"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayAgainButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -132.0
+margin_top = 288.0
+margin_right = 171.0
+margin_bottom = 345.0
+custom_fonts/font = ExtResource( 2 )
+text = "Play Again"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -212.0
+margin_top = 168.0
+margin_right = 236.0
+margin_bottom = 256.0
+custom_fonts/font = ExtResource( 2 )
+text = "You Score Is "
+align = 1
+valign = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -656, 608 )
+scale = Vector2( 10.9134, 5.88667 )
+z_index = -2
+texture = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 1039.73, 534.5 )
+scale = Vector2( 11.0592, 3.31667 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[connection signal="pressed" from="ExitButton" to="ExitButton" method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="PlayAgainButton" to="PlayAgainButton" method="_on_PlayAgainButton_pressed"]

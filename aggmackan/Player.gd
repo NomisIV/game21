@@ -104,9 +104,10 @@ func hit_by_fireball():
 		remaining_caviar = 0
 		speed = NORMAL_SPEED
 		hp = MAX_HP
-		print(score)
+		get_parent().add_child($Camera2D)
+		get_parent().get_node("UI").get_node("Control").get_node("ScoreLabel").update_score(score)
+		get_parent().get_node("UI").get_node("Control").visible = true
 		score = 0
-		get_tree().reload_current_scene()
 		
 	
 func pick_up_caviar():
