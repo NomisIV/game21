@@ -6,7 +6,7 @@ enum Items {
 	CAVIAR,
 }
 
-const NORMAL_SPEED = 150
+const NORMAL_SPEED = 170
 const EGG_SPEED = 100
 const MAX_HP = 8
 var speed = NORMAL_SPEED
@@ -74,6 +74,8 @@ func _physics_process(delta):
 	elif vel.x < 0:
 		sprite.flip_h = true
 
+	if dodge_timer.time_left <= 0:
+		vel = vel.clamped(NORMAL_SPEED)
 	sprite.speed_scale = vel.length()*0.013
 	move_and_slide(vel, Vector2.UP)
 
