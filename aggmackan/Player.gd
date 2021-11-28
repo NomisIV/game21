@@ -8,7 +8,7 @@ enum Items {
 
 const NORMAL_SPEED = 170
 const EGG_SPEED = 100
-const MAX_HP = 8
+const MAX_HP = 10
 var speed = NORMAL_SPEED
 var has_egg : bool = false
 var dodge_speed = 400
@@ -26,6 +26,10 @@ var dodge_vel = Vector2()
 onready var dodge_timer = get_node("Timer")
 onready var sprite = get_node("AnimatedSprite")
 onready var dodge_emmiter = get_node("dodge_par")
+onready var hp_bar = get_parent().get_node("UI/hp_bar")
+onready var caviar_bar = get_parent().get_node("UI/caviar_bar")
+onready var egg_icon = get_parent().get_node("UI/egg_icon")
+onready var score_text = get_parent().get_node("UI/score_text")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -78,8 +82,16 @@ func _physics_process(delta):
 		vel = vel.clamped(NORMAL_SPEED)
 	sprite.speed_scale = vel.length()*0.013
 	move_and_slide(vel, Vector2.UP)
-
+	
+	hp_bar.value = hp
+	caviar_bar.value = remaining_caviar
+	if(equipped_item == Items.EGG):
+		egg_icon.visible = true
+	else:
+		egg_icon.visible = false
 		
+	score_text.text = String(score)
+	
 func pick_up_egg():
 	equipped_item = Items.EGG
 	speed = EGG_SPEED
@@ -94,6 +106,7 @@ func drop_of_egg():
 func hit_by_fireball():
 	hp -= 1
 	if hp <= 0:
+		hp = MAX_HP
 		global_position = get_parent().get_node("campfire").global_position
 		equipped_item = Items.NONE
 		print(score)
