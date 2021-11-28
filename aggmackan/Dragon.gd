@@ -61,7 +61,7 @@ func _physics_process(delta):
 
 func shake(delta):
 	shake_timer -= delta
-	vel = Vector2(rng.randf_range(-200, 200), rng.randf_range(-200, 200))
+	vel = Vector2(rng.randf_range(-400, 400), rng.randf_range(-400, 400))
 	move_and_slide(vel, Vector2.UP)
 	
 func do_burst(delta, target):
@@ -87,7 +87,7 @@ func shoot_fire_towards(target):
 	var spread = rng.randf_range(-PI/12, PI/12)
 	var fireball = Fireball.instance()
 	get_parent().add_child(fireball)
-	fireball.transform = global_transform
+	fireball.transform = $rays/fire_point.global_transform
 	fireball.look_at(target)
 	fireball.rotate(spread)
 

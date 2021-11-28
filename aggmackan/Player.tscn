@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/sprites/mackan/mackan4.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -34,6 +34,9 @@ initial_velocity_random = 0.22
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 
+[sub_resource type="OccluderPolygon2D" id=6]
+polygon = PoolVector2Array( 10.7755, -6.9586, -0.870003, 3.42417, -13.0066, -5.83614, -3.25524, -12.15 )
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
@@ -59,3 +62,6 @@ amount = 200
 local_coords = false
 process_material = SubResource( 5 )
 texture = ExtResource( 6 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 6 )

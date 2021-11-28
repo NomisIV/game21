@@ -35,6 +35,9 @@ position = Vector2( -50, 50 )
 [node name="down_r_point" type="Position2D" parent="rays"]
 position = Vector2( 50, 50 )
 
+[node name="fire_point" type="Position2D" parent="rays"]
+position = Vector2( 0, 50 )
+
 [node name="Sprite" type="Sprite" parent="rays"]
 visible = false
 position = Vector2( 0, 60 )

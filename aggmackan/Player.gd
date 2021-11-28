@@ -85,10 +85,11 @@ func pick_up_egg():
 	speed = EGG_SPEED
 
 func drop_of_egg():
-	equipped_item = Items.NONE
-	score += 1
-	hp = MAX_HP
-	speed = NORMAL_SPEED
+	if(equipped_item == Items.EGG):
+		equipped_item = Items.NONE
+		score += 1
+		hp = MAX_HP
+		speed = NORMAL_SPEED
 
 func hit_by_fireball():
 	hp -= 1
