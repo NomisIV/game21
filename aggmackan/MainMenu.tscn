@@ -1,9 +1,64 @@
-[gd_scene format=2]
+[gd_scene load_steps=6 format=2]
 
-[node name="MainMenu" type="Node2D"]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Pulse.gd" type="Script" id=3]
+[ext_resource path="res://Button.gd" type="Script" id=4]
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[sub_resource type="GDScript" id=2]
+script/source = "extends CanvasLayer
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="RichTextEffect" id=1]
+script = ExtResource( 3 )
+
+[node name="MarginContainer" type="CanvasLayer"]
+script = SubResource( 2 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 1.0
 anchor_right = 1.0
+margin_left = -607.0
+margin_top = 353.0
+margin_right = -424.0
+margin_bottom = 435.0
+custom_fonts/font = ExtResource( 1 )
+text = "Start"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 1.0
+margin_top = 29.0
+margin_right = 1025.0
+margin_bottom = 318.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[color=#250000][pulse freq=5.0 height=2.0][pulse color=#a40000 freq=2.0][center]Egg Sandwich Adventures: DX
+The Chronicles of the Caviar
+Chapter II"
+text = "Egg Sandwich Adventures: DX
+The Chronicles of the Caviar
+Chapter II"
+custom_effects = [ SubResource( 1 ) ]
 __meta__ = {
 "_edit_use_anchors_": false
 }

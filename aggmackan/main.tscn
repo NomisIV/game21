@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/sprites/egg_hearts.png" type="Texture" id=9]
 [ext_resource path="res://assets/sprites/dragon_egg?.png" type="Texture" id=10]
 [ext_resource path="res://assets/sprites/kaviar_meter_back.png" type="Texture" id=11]
-[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=12]
+[ext_resource path="res://new_dynamicfont2.tres" type="DynamicFont" id=12]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/kaviar_meter_top.png-555f67e9e648fd54fe9169963793e271.stex"
